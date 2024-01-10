@@ -3,7 +3,7 @@ set -e
 
 ### Credit to the Authors at https://rentry.org/CFWGuides
 ### Script created by Fraxalotl
-### Mod by huangqian8
+### Mod by huangqian8 & JiuXia2025
 
 # -------------------------------------------
 
@@ -22,11 +22,11 @@ mkdir -p ./SwitchSD/themes
 mkdir -p ./SwitchSD/config/tesla
 cd SwitchSD
 
-### Fetch latest Hekate + Nyx from https://github.com/CTCaer/hekate/releases/latest
-curl -sL https://api.github.com/repos/CTCaer/hekate/releases/latest \
+### Fetch latest Hekate + Nyx Chinese from https://github.com/easyworld/hekate/releases/latest
+curl -sL https://api.github.com/repos/easyworld/hekate/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/CTCaer/hekate/releases/latest \
+curl -sL https://api.github.com/repos/easyworld/hekate/releases/latest \
   | jq '.assets' | jq '.[0].browser_download_url' \
   | xargs -I {} curl -sL {} -o hekate.zip
 if [ $? -ne 0 ]; then
