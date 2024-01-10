@@ -1,6 +1,7 @@
-# 大气层个人整合包生成脚本
+# 大气层个人整合包自动构建
 
 ## 更新日志
+- 2024-01-11 添加 `Hekate + Nyx繁简汉化版` 仓库链接
 - 2024-01-09 更新 `Tesla3` 仓库链接
 - 2023-12-15 更新 `Lockpick_RCM` 仓库链接
 - 2023-12-04 删除 `Safe_Reboot_Shutdown.nro` 插件，添加3个 `Ovl` 插件
@@ -21,7 +22,7 @@
 
 - 下载最新：
   - 大气层三件套
-    - [x] `Hekate + Nyx` [From Here](https://github.com/CTCaer/hekate/releases/latest/)
+    - [x] `Hekate + Nyx繁简汉化版` [From Here](https://github.com/easyworld/hekate/releases/latest/)
     - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
     - [x] `SigPatches` [From Here](https://sigmapatches.coomer.party/sigpatches.zip?08.22.2023)
   - Payload 插件
