@@ -1,9 +1,9 @@
-# 大气层个人整合包自动构建
+# 大气层九夏整合包自动构建
 
 ## 更新日志
-- 2024-01-12 添加 hetake引导图标资源
-- 2024-01-12 添加 `hwfly-toolbox` 国产芯片工具箱插件
-- 2024-01-11 添加 `Hekate + Nyx繁简汉化版` 仓库链接
+- 2024-01-12 添加 `Hekate` 引导图标与启动图资源，添加hbmenu.nsp  by.JiuXia2025
+- 2024-01-12 添加 `hwfly-toolbox` 国产芯片工具箱插件  by.JiuXia2025
+- 2024-01-11 添加 `Hekate + Nyx繁简汉化版` 仓库链接  by.JiuXia2025
 - 2024-01-09 更新 `Tesla3` 仓库链接
 - 2023-12-15 更新 `Lockpick_RCM` 仓库链接
 - 2023-12-04 删除 `Safe_Reboot_Shutdown.nro` 插件，添加3个 `Ovl` 插件
