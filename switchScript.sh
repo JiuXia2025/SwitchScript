@@ -19,6 +19,9 @@ mkdir -p ./SwitchSD/atmosphere/hosts
 mkdir -p ./SwitchSD/switch/DBI
 mkdir -p ./SwitchSD/switch/Checkpoint
 mkdir -p ./SwitchSD/themes
+mkdir -p ./SwitchSD/bootloader
+mkdir -p ./SwitchSD/bootloader/ini
+mkdir -p ./SwitchSD/bootloader/res
 mkdir -p ./SwitchSD/config/tesla
 cd SwitchSD
 
@@ -50,6 +53,16 @@ else
     echo "atmosphere download\033[32m success\033[0m."
     unzip -oq atmosphere.zip
     rm atmosphere.zip
+fi
+
+### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/resources.zip -o resources.zip
+if [ $? -ne 0 ]; then
+    echo "Resources download\033[31m failed\033[0m."
+else
+    echo "Resources download\033[32m success\033[0m."
+    unzip -oq resources.zip
+    rm resources.zip
 fi
 
 ### Fetch latest fusee.bin from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
