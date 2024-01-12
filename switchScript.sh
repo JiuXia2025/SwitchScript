@@ -351,39 +351,42 @@ cat > ./bootloader/hekate_ipl.ini << ENDOFFILE
 autoboot=0
 autoboot_list=0
 bootwait=3
+verification=1
 backlight=100
-noticker=0
-autohosoff=1
+autohosoff=0
 autonogc=1
-updater2p=0
-bootprotect=0
+updater2p=1
 
-[Fusee]
-icon=bootloader/res/icon_ams.bmp
+[大气层自动识别]
 payload=bootloader/payloads/fusee.bin
+icon=bootloader/res/icon_ams.bmp
+{}
 
-[CFW (emuMMC)]
+[大气层虚拟系统]
 emummcforce=1
 fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
-id=cfw-emu
+id=Atm-Emu
+{}
 
-[CFW (sysMMC)]
+[大气层真实系统]
 emummc_force_disable=1
 fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
-id=cfw-sys
+id=Atm-Sys
+{}
 
-[Stock SysNAND]
+[机身正版系统]
 emummc_force_disable=1
 fss0=atmosphere/package3
-icon=bootloader/res/icon_stock.bmp
 stock=1
-id=ofw-sys
+icon=bootloader/res/icon_stock.bmp
+id=OFW-SYS
+{}
 ENDOFFILE
 if [ $? -ne 0 ]; then
     echo "Writing hekate_ipl.ini in ./bootloader/ directory\033[31m failed\033[0m."
@@ -417,11 +420,6 @@ cat > ./atmosphere/hosts/emummc.txt << ENDOFFILE
 127.0.0.1 *nintendo.*
 127.0.0.1 *nintendo-europe.com
 127.0.0.1 *nintendoswitch.*
-127.0.0.1 ads.doubleclick.net
-127.0.0.1 s.ytimg.com
-127.0.0.1 ad.youtube.com
-127.0.0.1 ads.youtube.com
-127.0.0.1 clients1.google.com
 207.246.121.77 *conntest.nintendowifi.net
 207.246.121.77 *ctest.cdn.nintendo.net
 69.25.139.140 *ctest.cdn.n.nintendoswitch.cn
