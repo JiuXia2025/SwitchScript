@@ -1,6 +1,7 @@
 # 大气层个人整合包自动构建
 
 ## 更新日志
+- 2024-01-12 添加 `hwfly-toolbox` 国产芯片工具箱插件
 - 2024-01-11 添加 `Hekate + Nyx繁简汉化版` 仓库链接
 - 2024-01-09 更新 `Tesla3` 仓库链接
 - 2023-12-15 更新 `Lockpick_RCM` 仓库链接
@@ -26,6 +27,7 @@
     - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
     - [x] `SigPatches` [From Here](https://sigmapatches.coomer.party/sigpatches.zip?08.22.2023)
   - Payload 插件
+    - [x] 国产芯片工具箱 `hwfly-toolbox` [From Here](https://github.com/hwfly-nx/hwfly-toolbox/releases/latest)
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Decscots/Lockpick_RCM/releases/latest)
     - [x] Hekate下的文件管理工具 `TegraExplorer` [From Here](https://github.com/zdm65477730/TegraExplorer/releases/latest)
     - [x] Hekate下删除主题和关闭插件自动启动 `CommonProblemResolver` [From Here](https://github.com/zdm65477730/CommonProblemResolver/releases/latest)
