@@ -87,6 +87,20 @@ else
     mv Lockpick_RCM.bin ./bootloader/payloads
 fi
 
+### Fetch latest hwfly_toolbox.bin from https://github.com/hwfly-nx/hwfly-toolbox/releases/latest
+curl -sL https://api.github.com/repos/hwfly-nx/hwfly-toolbox/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo hwfly-toolbox {} >> ../description.txt
+curl -sL https://api.github.com/repos/hwfly-nx/hwfly-toolbox/releases/latest \
+  | jq '.assets' | jq '.[0].browser_download_url' \
+  | xargs -I {} curl -sL {} -o hwfly_toolbox.bin
+if [ $? -ne 0 ]; then
+    echo "hwfly-toolbox download\033[31m failed\033[0m."
+else
+    echo "hwfly-toolbox download\033[32m success\033[0m."
+    mv hwfly_toolbox.bin ./bootloader/payloads
+fi
+
 ### Fetch latest TegraExplorer.bin form https://github.com/zdm65477730/TegraExplorer/releases
 curl -sL https://api.github.com/repos/zdm65477730/TegraExplorer/releases/latest \
   | jq '.tag_name' \
