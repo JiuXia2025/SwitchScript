@@ -73,6 +73,16 @@ else
     rm sigpatches.zip
 fi
 
+### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/resources.zip -o resources.zip
+if [ $? -ne 0 ]; then
+    echo "Resources download\033[31m failed\033[0m."
+else
+    echo "Resources download\033[32m success\033[0m."
+    unzip -oq resources.zip
+    rm resources.zip
+fi
+
 ### Fetch latest Lockpick_RCM.bin from https://github.com/Decscots/Lockpick_RCM/releases/latest
 curl -sL https://api.github.com/repos/Decscots/Lockpick_RCM/releases/latest \
   | jq '.tag_name' \
