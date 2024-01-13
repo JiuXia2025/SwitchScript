@@ -1,4 +1,5 @@
 # 大气层九夏整合包自动构建
+- 特斯拉菜单按键：L+Zl+R，hbmenu插件菜单按键：按住R点击相册
 - 整合包如有问题反馈建议讨论相关的请加QQ群：952060192 ，看到会回复的
 - 整合包由JiuXia2025二改定制@huangqian8脚本后打包而成，加入了一些原有脚本未包含的内容并且会持续更新
 - 整合包自动构建，请下载最新release使用。所有大气层相关组件与插件自动同步上游最新版本，构建过程全公开不夹带私货，安全放心开箱即用
@@ -20,17 +21,22 @@
 - 2023-04-28 更新脚本，自动生成 Release 内容
 - 2023-04-27 添加 Github Action 自动打包代码
 
-## 使用说明（仅适用于 `Linux` ）:
+## 手动构建（仅适用于 `Linux` ）:
   - 安装 `jq` 工具
   - 运行脚本
+
+## 安装整合包至内存卡（与其他整合包的安装方法一致）:
+  - 删除原有大气层整合包相关文件夹
+  - 下载本仓库release页面最新构建中的SwitchSD.zip并解压至内存卡目录
 
 ## 功能如下：
 
 - 下载最新：
-  - 大气层三件套
+  - 大气层四件套
     - [x] `Hekate + Nyx繁简汉化版` [From Here](https://github.com/easyworld/hekate/releases/latest/)
     - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
     - [x] `SigPatches` [From Here](https://sigmapatches.coomer.party/sigpatches.zip?08.22.2023)
+    - [x] `大气层九夏附加包` [From Here](https://github.com/JiuXia2025/SwitchScript/blob/main/resources.zip)
   - Payload 插件
     - [x] 国产芯片工具箱 `hwfly-toolbox` [From Here](https://github.com/hwfly-nx/hwfly-toolbox/releases/latest)
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Decscots/Lockpick_RCM/releases/latest)
@@ -66,6 +72,7 @@
     - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
     - [x] 在 `bootloader` 文件夹中创建 `hekate_ipl.ini`
     - [x] 在根目录中创建 `exosphere.ini`
+    - [X] 在根目录中下载并解压最新 `大气层九夏附加包`
     - [x] 在 `atmosphere` 文件夹中创建 `hosts` 文件夹
     - [x] 在 `atmosphere/hosts` 文件夹中创建 `emummc.txt` 和 `sysmmc.txt` ，屏蔽任天堂服务器
     - [x] 在根目录中创建 `boot.ini`
