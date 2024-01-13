@@ -86,6 +86,16 @@ else
     rm sigpatches.zip
 fi
 
+### Fetch latest picofly_toolbox_0.2.bin from
+curl -sL https://raw.github.com/Ansem-SoD/Picofly/main/Firmwares/picofly_toolbox_0.2.bin -o picofly_toolbox_0.2.bin
+if [ $? -ne 0 ]; then
+    echo "picofly_toolbox download\033[31m failed\033[0m."
+else
+    echo "picofly_toolbox download\033[32m success\033[0m."
+    mv picofly_toolbox_0.2.bin ./bootloader/payloads
+    echo "picofly_toolbox_0.2" >> ../description.txt
+fi
+
 ### Fetch latest Lockpick_RCM.bin from https://github.com/Decscots/Lockpick_RCM/releases/latest
 curl -sL https://api.github.com/repos/Decscots/Lockpick_RCM/releases/latest \
   | jq '.tag_name' \
