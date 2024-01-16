@@ -454,25 +454,12 @@ fi
 ### Write config.ini in /config/tesla
 cat > ./config/tesla/config.ini << ENDOFFILE
 [tesla]
-key_combo=L+ZL+R
+key_combo=L+DDOWN
 ENDOFFILE
 if [ $? -ne 0 ]; then
     echo "Writing config.ini in ./config/tesla\033[31m failed\033[0m."
 else
     echo "Writing config.ini in ./config/tesla\033[32m success\033[0m."
-fi
-
-### Write override_config.ini in /atmosphere/config
-cat > ./atmosphere/config/override_config.ini << ENDOFFILE
-[hbl_config] 
-program_id_0=010000000000100D
-override_address_space=39_bit
-override_key_0=R
-ENDOFFILE
-if [ $? -ne 0 ]; then
-    echo "Writing override_config.ini in ./atmosphere/config\033[31m failed\033[0m."
-else
-    echo "Writing override_config.ini in ./atmosphere/config\033[32m success\033[0m."
 fi
 
 ### Write system_settings.ini in /atmosphere/config
