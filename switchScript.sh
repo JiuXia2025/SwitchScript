@@ -512,7 +512,6 @@ else
     rm tesla.zip
     rm 大气层Tesla终极版插件包.txt
     rm -rf switch/DeepSea-Toolbox
-    sed -i "s/L+DDOWN/L+Zl+R/g" config/tesla/config.ini
 fi
 
 ###
