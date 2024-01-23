@@ -451,17 +451,6 @@ else
     echo "Writing boot.ini in root of SD card\033[32m success\033[0m."
 fi
 
-### Write config.ini in /config/tesla
-cat > ./config/tesla/config.ini << ENDOFFILE
-[tesla]
-key_combo=L+DDOWN
-ENDOFFILE
-if [ $? -ne 0 ]; then
-    echo "Writing config.ini in ./config/tesla\033[31m failed\033[0m."
-else
-    echo "Writing config.ini in ./config/tesla\033[32m success\033[0m."
-fi
-
 ### Write system_settings.ini in /atmosphere/config
 cat > ./atmosphere/config/system_settings.ini << ENDOFFILE
 [eupld]
