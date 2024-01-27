@@ -5,7 +5,13 @@
 - 整合包由JiuXia2025二改定制@huangqian8脚本后打包而成，加入了一些原有脚本未包含的内容并且会持续更新
 - 整合包自动构建，请下载最新release使用。所有大气层相关组件与插件自动同步上游最新版本，构建过程全公开不夹带私货，安全放心开箱即用
 ## 更新日志
-- 2024-01-14 修改 菜单入口，特斯拉菜单按键：L+↓，hbmenu插件菜单按键：直接点击相册  by.JiuXia2025
+- 2024-01-27 添加 `HB-Appstore-v2.3.2` nro插件  by.JiuXia2025
+- 2024-01-27 添加 `Tinfoil-17v3` nro插件  by.JiuXia2025
+- 2024-01-27 添加 `Wiliwili-v1.3.0` nro插件  by.JiuXia2025
+- 2024-01-27 添加 `warmboot_mariko` 忽略熔断补丁  by.JiuXia2025
+- 2024-01-27 更新 `SigPatchers` 最新版本，提高兼容性  by.JiuXia2025
+- 2024-01-27 更新 品技Z大最新版本特斯拉插件整合包  by.JiuXia2025
+- 2024-01-27 修改 菜单入口，特斯拉菜单按键：L+↓，hbmenu插件菜单按键：直接点击相册  by.JiuXia2025
 - 2024-01-14 添加 `picofly-toolbox` 树莓派芯片工具箱插件  by.JiuXia2025
 - 2024-01-13 添加 `DBI` 中文汉化配置  by.JiuXia2025
 - 2024-01-12 添加 `Hekate` 安卓系统启动引导，位于hetake首页-更多设置中  by.JiuXia2025
@@ -46,6 +52,9 @@
     - [x] Hekate下的文件管理工具 `TegraExplorer` [From Here](https://github.com/zdm65477730/TegraExplorer/releases/latest)
     - [x] Hekate下删除主题和关闭插件自动启动 `CommonProblemResolver` [From Here](https://github.com/zdm65477730/CommonProblemResolver/releases/latest)
   - Nro 插件列表
+    - [x] 商店 `HB-Appstore` [From Here](https://github.com/fortheusers/hb-appstore/releases)
+    - [x] 商店 `Tinfoil` [From Here](https://tinfoil.io/Download#download)
+    - [x] 掌机B站客户端 `Wiliwili` [From Here](https://github.com/xfangfang/wiliwili/releases)
     - [x] 联网检测是否屏蔽任天堂服务器 `Switch_90DNS_tester.nro` [From Here](https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest)
     - [x] 游戏存档管理工具 `Checkpoint` [From Here](https://github.com/BernardoGiordano/Checkpoint/releases/latest)
     - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/latest)
