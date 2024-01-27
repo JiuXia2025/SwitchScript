@@ -18,6 +18,8 @@ mkdir -p ./SwitchSD/atmosphere/config
 mkdir -p ./SwitchSD/atmosphere/hosts
 mkdir -p ./SwitchSD/switch/DBI
 mkdir -p ./SwitchSD/switch/Checkpoint
+mkdir -p ./SwitchSD/switch
+mkdir -p ./SwitchSD/warmboot_mariko
 mkdir -p ./SwitchSD/themes
 mkdir -p ./SwitchSD/bootloader
 mkdir -p ./SwitchSD/bootloader/ini
@@ -77,7 +79,7 @@ else
 fi
 
 ### Fetch latest SigPatches.zip from
-curl -sL https://sigmapatches.coomer.party/sigpatches.zip?08.22.2023 -o sigpatches.zip
+curl -sL https://sigmapatches.su/sigpatches.zip?12.02.2023 -o sigpatches.zip
 if [ $? -ne 0 ]; then
     echo "SigPatches download\033[31m failed\033[0m."
 else
@@ -150,6 +152,39 @@ if [ $? -ne 0 ]; then
 else
     echo "CommonProblemResolver download\033[32m success\033[0m."
     mv CommonProblemResolver.bin ./bootloader/payloads
+fi
+
+### Fetch lastest aio-switch-updater from https://github.com/HamletDuFromage/aio-switch-updater/releases/latest
+curl -sL https://api.github.com/repos/HamletDuFromage/aio-switch-updater/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo aio-switch-updater {} >> ../description.txt
+curl -sL https://api.github.com/repos/HamletDuFromage/aio-switch-updater/releases/latest \
+  | jq '.assets' | jq '.[0].browser_download_url' \
+  | xargs -I {} curl -sL {} -o aio-switch-updater.zip
+if [ $? -ne 0 ]; then
+    echo "aio-switch-updater download\033[31m failed\033[0m."
+else
+    echo "aio-switch-updater download\033[32m success\033[0m."
+    unzip -oq aio-switch-updater.zip
+    rm aio-switch-updater.zip
+fi
+
+### Fetch lastest wiliwili from https://github.com/xfangfang/wiliwili/releases/latest
+curl -sL https://api.github.com/repos/xfangfang/wiliwili/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo wiliwili {} >> ../description.txt
+curl -sL https://api.github.com/repos/xfangfang/wiliwili/releases/latest \
+  | jq '.assets' | jq '.[7].browser_download_url' \
+  | xargs -I {} curl -sL {} -o wiliwili-NintendoSwitch.zip
+if [ $? -ne 0 ]; then
+    echo "wiliwili download\033[31m failed\033[0m."
+else
+    echo "wiliwili download\033[32m success\033[0m."
+    unzip -oq wiliwili-NintendoSwitch.zip
+    mkdir -p ./switch/wiliwili
+    mv wiliwili/wiliwili.nro ./switch/wiliwili
+    rm -rf wiliwili
+    rm wiliwili-NintendoSwitch.zip
 fi
 
 ### Fetch lastest Switch_90DNS_tester from https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest
