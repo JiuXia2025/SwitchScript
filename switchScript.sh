@@ -59,8 +59,6 @@ else
     rm -rf bootloader/res
     rm -rf bootloader/sys
     rm -rf atmosphere/hosts
-    rm exosphere.ini
-    rm hetake.bin
 fi
 
 ### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
