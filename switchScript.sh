@@ -54,11 +54,6 @@ if [ $? -ne 0 ]; then
 else
     echo "atmosphere download\033[32m success\033[0m."
     unzip -oq atmosphere.zip
-    rm atmosphere.zip
-    rm -rf bootloader/ini
-    rm -rf bootloader/res
-    rm -rf bootloader/sys
-    rm -rf atmosphere/hosts
 fi
 
 ### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
