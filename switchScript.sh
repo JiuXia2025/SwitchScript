@@ -42,11 +42,11 @@ else
     rm hekate.zip
 fi
 
-### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+### Fetch latest atmosphere from https://github.com/borntohonk/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
   | jq '.assets' | jq '.[0].browser_download_url' \
   | xargs -I {} curl -sL {} -o atmosphere.zip
 if [ $? -ne 0 ]; then
@@ -55,6 +55,13 @@ else
     echo "atmosphere download\033[32m success\033[0m."
     unzip -oq atmosphere.zip
     rm atmosphere.zip
+    rm -rf bootloader/ini
+    rm -rf bootloader/res
+    rm -rf bootloader/sys
+    rm bootloader/update.bin
+    rm -rf atmosphere/hosts
+    rm exosphere.ini
+    rm hetake.bin
 fi
 
 ### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
@@ -65,17 +72,6 @@ else
     echo "Resources download\033[32m success\033[0m."
     unzip -oq resources.zip
     rm resources.zip
-fi
-
-### Fetch latest fusee.bin from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
-  | jq '.assets' | jq '.[1].browser_download_url' \
-  | xargs -I {} curl -sL {} -o fusee.bin
-if [ $? -ne 0 ]; then
-    echo "fusee download\033[31m failed\033[0m."
-else
-    echo "fusee download\033[32m success\033[0m."
-    mv fusee.bin ./bootloader/payloads
 fi
 
 ### Fetch latest SigPatches.zip from
