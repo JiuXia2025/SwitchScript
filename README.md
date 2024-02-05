@@ -1,11 +1,14 @@
 # 大气层九夏整合包自动构建
-- 此项目由本人业余维护更新，如果可以的话欢迎[赞助我](https://afdian.net/a/JiuXia2025)
+- 此项目由我业余维护更新，如果可以的话欢迎[赞助我](https://afdian.net/a/JiuXia2025)
 - 本整合包永久开源免费，禁止任何人二次贩卖本整合包，公开转载请注明整合包来源@JiuXia2025
 - 特斯拉菜单按键：L+↓，hbmenu插件菜单按键：直接点击相册
+- 遇到屏幕色彩发黄是因为护眼插件默认开启，L+↓打开特斯拉菜单滑下去找到色彩调节，关闭
 - 整合包如有问题反馈建议讨论相关的请加QQ群：952060192 ，看到会回复的，推荐加一下出问题方便解决
 - 整合包由JiuXia2025二改定制@huangqian8脚本后打包而成，加入了一些原有脚本未包含的内容并且会持续更新
 - 整合包自动构建，请下载最新release使用。所有大气层相关组件与插件自动同步上游最新版本，构建过程全公开不夹带私货，安全放心开箱即用
 ## 更新日志
+- 2024-02-05 添加 `Switchfin` nro插件  by.JiuXia2025
+- 2024-02-05 添加 `SimpleModDownloader` nro插件  by.JiuXia2025
 - 2024-02-05 更换 `Atmosphere` 仓库为 [borntohonk/Atmosphere](https://github.com/borntohonk/Atmosphere)  by.JiuXia2025
 - 2024-01-27 添加 `HB-Appstore-v2.3.2` nro插件  by.JiuXia2025
 - 2024-01-27 添加 `Tinfoil-17v3` nro插件  by.JiuXia2025
@@ -45,17 +48,20 @@
 - 下载最新：
   - 大气层四件套
     - [x] `Hekate + Nyx繁简汉化版` [From Here](https://github.com/easyworld/hekate/releases/latest/)
-    - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
-    - [x] `SigPatches` [From Here](https://sigmapatches.coomer.party/sigpatches.zip?08.22.2023)
+    - [x] `Atmosphere + Fusee` [From Here](https://github.com/borntohonk/Atmosphere/releases/latest)
+    - [x] `SigPatches` [From Here](https://sigmapatches.su/sigpatches.zip?12.02.2023)
     - [x] `大气层九夏附加包` [From Here](https://github.com/JiuXia2025/SwitchScript/blob/main/resources.zip)
   - Payload 插件
     - [x] 国产芯片工具箱 `hwfly-toolbox` [From Here](https://github.com/hwfly-nx/hwfly-toolbox/releases/latest)
+    - [x] 树莓派芯片工具箱 `picofly-toolbox` [From Here](https://github.com/Ansem-SoD/Picofly)
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Decscots/Lockpick_RCM/releases/latest)
     - [x] Hekate下的文件管理工具 `TegraExplorer` [From Here](https://github.com/zdm65477730/TegraExplorer/releases/latest)
     - [x] Hekate下删除主题和关闭插件自动启动 `CommonProblemResolver` [From Here](https://github.com/zdm65477730/CommonProblemResolver/releases/latest)
   - Nro 插件列表
     - [x] 商店 `HB-Appstore` [From Here](https://github.com/fortheusers/hb-appstore/releases)
     - [x] 商店 `Tinfoil` [From Here](https://tinfoil.io/Download#download)
+    - [x] 掌机Jellyfin播放器 `Switchfin` [From Here](https://github.com/dragonflylee/switchfin)
+    - [x] 简单Mod下载器 `SimpleModDownloader` [From Here](https://github.com/PoloNX/SimpleModDownloader)
     - [x] 掌机B站客户端 `Wiliwili` [From Here](https://github.com/xfangfang/wiliwili/releases)
     - [x] 联网检测是否屏蔽任天堂服务器 `Switch_90DNS_tester.nro` [From Here](https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest)
     - [x] 游戏存档管理工具 `Checkpoint` [From Here](https://github.com/BernardoGiordano/Checkpoint/releases/latest)
