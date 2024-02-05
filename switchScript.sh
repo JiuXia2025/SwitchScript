@@ -58,7 +58,6 @@ else
     rm -rf bootloader/ini
     rm -rf bootloader/res
     rm -rf bootloader/sys
-    rm bootloader/update.bin
     rm -rf atmosphere/hosts
     rm exosphere.ini
     rm hetake.bin
