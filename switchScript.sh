@@ -27,6 +27,20 @@ mkdir -p ./SwitchSD/bootloader/res
 mkdir -p ./SwitchSD/config/tesla
 cd SwitchSD
 
+### Fetch latest atmosphere from https://github.com/borntohonk/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
+  | jq '.assets' | jq '.[0].browser_download_url' \
+  | xargs -I {} curl -sL {} -o atmosphere.zip
+if [ $? -ne 0 ]; then
+    echo "atmosphere download\033[31m failed\033[0m."
+else
+    echo "atmosphere download\033[32m success\033[0m."
+    unzip -oq atmosphere.zip
+fi
+
 ### Fetch latest Hekate + Nyx Chinese from https://github.com/easyworld/hekate/releases/latest
 curl -sL https://api.github.com/repos/easyworld/hekate/releases/latest \
   | jq '.name' \
@@ -40,20 +54,6 @@ else
     echo "Hekate + Nyx download\033[32m success\033[0m."
     unzip -oq hekate.zip
     rm hekate.zip
-fi
-
-### Fetch latest atmosphere from https://github.com/borntohonk/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o atmosphere.zip
-if [ $? -ne 0 ]; then
-    echo "atmosphere download\033[31m failed\033[0m."
-else
-    echo "atmosphere download\033[32m success\033[0m."
-    unzip -oq atmosphere.zip
 fi
 
 ### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
@@ -77,12 +77,12 @@ else
 fi
 
 ### Fetch latest picofly_toolbox_0.2.bin from
-curl -sL https://raw.github.com/Ansem-SoD/Picofly/main/Firmwares/picofly_toolbox_0.2.bin -o picofly_toolbox_0.2.bin
+curl -sL https://raw.github.com/Ansem-SoD/Picofly/main/Firmwares/picofly_toolbox_0.2.bin -o picofly_toolbox.bin
 if [ $? -ne 0 ]; then
     echo "picofly_toolbox download\033[31m failed\033[0m."
 else
     echo "picofly_toolbox download\033[32m success\033[0m."
-    mv picofly_toolbox_0.2.bin ./bootloader/payloads
+    mv picofly_toolbox.bin ./bootloader/payloads
     echo "picofly_toolbox_0.2" >> ../description.txt
 fi
 
