@@ -6,7 +6,7 @@
 - 整合包由JiuXia2025二改定制@huangqian8脚本后打包而成，加入了一些原有脚本未包含的内容并且会持续更新
 - 整合包自动构建，请下载最新release使用。所有大气层相关组件与插件自动同步上游最新版本，构建过程全公开不夹带私货，安全放心开箱即用
 ## 更新日志
-- 2024-02-05 更换 `Atmosphere` 仓库为[[borntohonk/Atmosphere](https://github.com/borntohonk/Atmosphere)
+- 2024-02-05 更换 `Atmosphere` 仓库为 [borntohonk/Atmosphere](https://github.com/borntohonk/Atmosphere)  by.JiuXia2025
 - 2024-01-27 添加 `HB-Appstore-v2.3.2` nro插件  by.JiuXia2025
 - 2024-01-27 添加 `Tinfoil-17v3` nro插件  by.JiuXia2025
 - 2024-01-27 添加 `Wiliwili-v1.3.0` nro插件  by.JiuXia2025
