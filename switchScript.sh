@@ -39,6 +39,7 @@ if [ $? -ne 0 ]; then
 else
     echo "atmosphere download\033[32m success\033[0m."
     unzip -oq atmosphere.zip
+    rm atmosphere.zip
 fi
 
 ### Fetch latest Hekate + Nyx Chinese from https://github.com/easyworld/hekate/releases/latest
@@ -525,7 +526,7 @@ fi
 
 ### Fetch lastest Tesla3 from https://github.com/laila509/Tesla-plugins/releases/latest
 curl -sL https://api.github.com/repos/laila509/Tesla-plugins/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
+  | jq '.assets' | jq '.[1].browser_download_url' \
   | xargs -I {} curl -sL {} -o tesla.zip
 if [ $? -ne 0 ]; then
     echo "tesla download\033[31m failed\033[0m."
