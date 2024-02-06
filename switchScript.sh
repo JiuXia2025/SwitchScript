@@ -176,6 +176,20 @@ else
     rm wiliwili-NintendoSwitch.zip
 fi
 
+### Fetch lastest HB-Appstore from https://github.com/fortheusers/hb-appstore/releases/latest
+curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo HB-Appstore {} >> ../description.txt
+curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
+  | jq '.assets' | jq '.[7].browser_download_url' \
+  | xargs -I {} curl -sL {} -o wiliwili-NintendoSwitch.zip
+if [ $? -ne 0 ]; then
+    echo "HB-Appstore download\033[31m failed\033[0m."
+else
+    echo "HB-Appstore download\033[32m success\033[0m."
+    mv appstore.nro ./switch
+fi
+
 ### Fetch lastest Switch_90DNS_tester from https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest
 curl -sL https://api.github.com/repos/meganukebmp/Switch_90DNS_tester/releases/latest \
   | jq '.tag_name' \
