@@ -584,8 +584,7 @@ fi
 
 ###
 cat >> ../description.txt << ENDOFFILE
-appstore.nro-v2.3.2(JXRES)
-Tinfoil-17v3(JXRES)
+Tinfoil-17v3
 ovlloader
 ovlmenu
 ovl-sysmodules
