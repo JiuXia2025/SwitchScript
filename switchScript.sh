@@ -281,7 +281,7 @@ curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
   | jq '.tag_name' \
   | xargs -I {} echo HB-Appstore {} >> ../description.txt
 curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
+  | jq '.assets' | jq '.[1].browser_download_url' \
   | xargs -I {} curl -sL {} -o appstore.nro
 if [ $? -ne 0 ]; then
     echo "HB-AppStore download\033[31m failed\033[0m."
