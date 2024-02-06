@@ -276,6 +276,20 @@ else
     mv NXThemesInstaller.nro ./switch
 fi
 
+### Fetch lastest HB-AppStore from https://github.com/fortheusers/hb-appstore/releases/latest
+curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo HB-Appstore {} >> ../description.txt
+curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
+  | jq '.assets' | jq '.[0].browser_download_url' \
+  | xargs -I {} curl -sL {} -o appstore.nro
+if [ $? -ne 0 ]; then
+    echo "HB-AppStore download\033[31m failed\033[0m."
+else
+    echo "HB-AppStore download\033[32m success\033[0m."
+    mv appstore.nro ./switch
+fi
+
 ### Fetch lastest SimpleModDownloader from https://github.com/PoloNX/SimpleModDownloader/releases/latest
 curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
   | jq '.tag_name' \
