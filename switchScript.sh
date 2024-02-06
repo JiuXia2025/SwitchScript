@@ -276,6 +276,36 @@ else
     mv NXThemesInstaller.nro ./switch
 fi
 
+### Fetch lastest SimpleModDownloader from https://github.com/PoloNX/SimpleModDownloader/releases/latest
+curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo SimpleModDownloader {} >> ../description.txt
+curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
+  | jq '.assets' | jq '.[0].browser_download_url' \
+  | xargs -I {} curl -sL {} -o SimpleModDownloader.nro
+if [ $? -ne 0 ]; then
+    echo "SimpleModDownloader download\033[31m failed\033[0m."
+else
+    echo "SimpleModDownloader download\033[32m success\033[0m."
+    mkdir -p ./switch/SimpleModDownloader
+    mv SimpleModDownloader.nro ./switch/SimpleModDownloader
+fi
+
+### Fetch lastest Switchfin from https://github.com/dragonflylee/switchfin/releases/latest
+curl -sL https://api.github.com/repos/dragonflylee/switchfin/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo Switchfin {} >> ../description.txt
+curl -sL https://api.github.com/repos/dragonflylee/switchfin/releases/latest \
+  | jq '.assets' | jq '.[5].browser_download_url' \
+  | xargs -I {} curl -sL {} -o Switchfin.nro
+if [ $? -ne 0 ]; then
+    echo "Switchfin download\033[31m failed\033[0m."
+else
+    echo "Switchfin download\033[32m success\033[0m."
+    mkdir -p ./switch/Switchfin
+    mv Switchfin.nro ./switch/Switchfin
+fi
+
 ### Fetch lastest JKSV from https://github.com/J-D-K/JKSV/releases/latest
 curl -sL https://api.github.com/repos/J-D-K/JKSV/releases/latest \
   | jq '.name' \
