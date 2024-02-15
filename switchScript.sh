@@ -642,16 +642,6 @@ else
     mv QuickNTP.ovl ./switch/.overlays
 fi
 
-### Fetch ldn_mitm from https://github.com/PewnyPL/ldn_mitm/releases
-curl -sL https://raw.githubusercontent.com/JiuXia2025/SwitchScript/main/plugins/ldn_mitm.zip -o ldn_mitm.zip
-if [ $? -ne 0 ]; then
-    echo "ldn_mitm download\033[31m failed\033[0m."
-else
-    echo "ldn_mitm download\033[32m success\033[0m."
-    unzip -oq ldn_mitm.zip
-    rm ldn_mitm.zip
-fi
-
 ### Fetch lastest sys-patch from https://github.com/ITotalJustice/sys-patch/releases/latest
 curl -sL https://api.github.com/repos/ITotalJustice/sys-patch/releases/latest \
   | jq '.tag_name' \
