@@ -190,6 +190,20 @@ else
     mv appstore.nro ./switch
 fi
 
+### Fetch lastest Goldleaf from https://github.com/XorTroll/Goldleaf/releases/latest
+curl -sL https://api.github.com/repos/XorTroll/Goldleaf/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo Goldleaf {} >> ../description.txt
+curl -sL https://api.github.com/repos/XorTroll/Goldleaf/releases/latest \
+  | jq '.assets' | jq '.[0].browser_download_url' \
+  | xargs -I {} curl -sL {} -o Goldleaf.nro
+if [ $? -ne 0 ]; then
+    echo "Goldleaf download\033[31m failed\033[0m."
+else
+    echo "Goldleaf download\033[32m success\033[0m."
+    mv Goldleaf.nro ./switch
+fi
+
 ### Fetch lastest Switch_90DNS_tester from https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest
 curl -sL https://api.github.com/repos/meganukebmp/Switch_90DNS_tester/releases/latest \
   | jq '.tag_name' \
