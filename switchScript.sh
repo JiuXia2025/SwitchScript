@@ -57,14 +57,14 @@ else
     rm hekate.zip
 fi
 
-### Fetch latest resources.zip from https://github.com/JiuXia2025/SwitchScript
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/resources.zip -o resources.zip
+### Fetch latest Bootloader-Resources from https://github.com/JiuXia2025/SwitchScript
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/resources/bootloader-res.zip -o bootloader-res.zip
 if [ $? -ne 0 ]; then
-    echo "Resources download\033[31m failed\033[0m."
+    echo "Bootloader-Resources download\033[31m failed\033[0m."
 else
-    echo "Resources download\033[32m success\033[0m."
-    unzip -oq resources.zip
-    rm resources.zip
+    echo "Bootloader-Resources download\033[32m success\033[0m."
+    unzip -oq bootloader-res.zip
+    rm bootloader-res.zip
 fi
 
 ### Fetch latest SigPatches.zip from
@@ -640,6 +640,16 @@ if [ $? -ne 0 ]; then
 else
     echo "QuickNTP download\033[32m success\033[0m."
     mv QuickNTP.ovl ./switch/.overlays
+fi
+
+### Fetch ldn_mitm from https://github.com/PewnyPL/ldn_mitm/releases
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/ldn_mitm.zip -o ldn_mitm.zip
+if [ $? -ne 0 ]; then
+    echo "ldn_mitm download\033[31m failed\033[0m."
+else
+    echo "ldn_mitm download\033[32m success\033[0m."
+    unzip -oq ldn_mitm.zip
+    rm ldn_mitm.zip
 fi
 
 ### Fetch lastest sys-patch from https://github.com/ITotalJustice/sys-patch/releases/latest
