@@ -643,7 +643,7 @@ else
 fi
 
 ### Fetch ldn_mitm from https://github.com/PewnyPL/ldn_mitm/releases
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/ldn_mitm.zip -o ldn_mitm.zip
+curl -sL https://raw.githubusercontent.com/JiuXia2025/SwitchScript/main/plugins/ldn_mitm.zip -o ldn_mitm.zip
 if [ $? -ne 0 ]; then
     echo "ldn_mitm download\033[31m failed\033[0m."
 else
