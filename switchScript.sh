@@ -614,21 +614,6 @@ else
     mv Zing.ovl ./switch/.overlays
 fi
 
-### Fetch lastest Fizeau from https://github.com/averne/Fizeau/releases/latest
-curl -sL https://api.github.com/repos/averne/Fizeau/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo Fizeau {} >> ../description.txt
-curl -sL https://api.github.com/repos/averne/Fizeau/releases/latest \
-  | jq '.assets' | jq '.[1].browser_download_url' \
-  | xargs -I {} curl -sL {} -o Fizeau.zip
-if [ $? -ne 0 ]; then
-    echo "Fizeau download\033[31m failed\033[0m."
-else
-    echo "Fizeau download\033[32m success\033[0m."
-    unzip -oq Fizeau.zip
-    rm Fizeau.zip
-fi
-
 ### Fetch lastest QuickNTP from https://github.com/nedex/QuickNTP/releases/latest
 curl -sL https://api.github.com/repos/nedex/QuickNTP/releases/latest \
   | jq '.tag_name' \
@@ -702,7 +687,6 @@ fastcfwswitch
 ldn_mitm
 emuiibo
 QuickNTP
-Fizeau
 Zing
 sys-patch
 ENDOFFILE
