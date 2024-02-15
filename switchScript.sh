@@ -58,13 +58,13 @@ else
 fi
 
 ### Fetch latest Bootloader-Resources from https://github.com/JiuXia2025/SwitchScript
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/resources/bootloader-res.zip -o bootloader-res.zip
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/resources/bootloader.zip -o bootloader.zip
 if [ $? -ne 0 ]; then
     echo "Bootloader-Resources download\033[31m failed\033[0m."
 else
     echo "Bootloader-Resources download\033[32m success\033[0m."
-    unzip -oq bootloader-res.zip
-    rm bootloader-res.zip
+    unzip -oq bootloader.zip
+    rm bootloader.zip
 fi
 
 ### Fetch latest SigPatches.zip from
