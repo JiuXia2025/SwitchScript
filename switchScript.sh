@@ -419,6 +419,16 @@ else
     mv switch-time.nro ./switch
 fi
 
+### Fetch QuickNTP
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
+if [ $? -ne 0 ]; then
+    echo "QuickNTP download\033[31m failed\033[0m."
+else
+    echo "QuickNTP download\033[32m success\033[0m."
+    unzip -oq QuickNTP.zip
+    rm QuickNTP.zip
+fi
+
 ### Fetch lastest theme-patches from https://github.com/exelix11/theme-patches
 git clone https://github.com/exelix11/theme-patches
 if [ $? -ne 0 ]; then
@@ -626,16 +636,6 @@ if [ $? -ne 0 ]; then
 else
     echo "Zing download\033[32m success\033[0m."
     mv Zing.ovl ./switch/.overlays
-fi
-
-### Fetch QuickNTP
-curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
-if [ $? -ne 0 ]; then
-    echo "QuickNTP download\033[31m failed\033[0m."
-else
-    echo "QuickNTP download\033[32m success\033[0m."
-    unzip -oq QuickNTP.zip
-    rm QuickNTP.zip
 fi
 
 ### Fetch lastest sys-patch from https://github.com/ITotalJustice/sys-patch/releases/latest
