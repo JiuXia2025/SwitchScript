@@ -663,6 +663,16 @@ else
     rm sys-patch.zip
 fi
 
+### Fetch sys-clk
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
+if [ $? -ne 0 ]; then
+    echo "sys-clk download\033[31m failed\033[0m."
+else
+    echo "sys-clk download\033[32m success\033[0m."
+    unzip -oq sys-clk.zip
+    rm sys-clk.zip
+fi
+
 ### Fetch lastest Switch-OC-Suite from https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest
 curl -sL https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases/latest \
   | jq '.tag_name' \
@@ -689,8 +699,9 @@ mkdir -p switch/.overlays/lang/Fizeau
 curl -sL https://raw.githubusercontent.com/zdm65477730/Fizeau/master/lang/zh-Hans.json -o switch/.overlays/lang/Fizeau/zh-Hans.json
 curl -sL https://raw.githubusercontent.com/zdm65477730/Fizeau/master/lang/zh-Hant.json -o switch/.overlays/lang/Fizeau/zh-Hant.json
 
-### Delete sys-clk.ovl
-rm switch/.overlays/sys-clk.ovl
+### Delete old sys-clk.ovl
+rm switch/.overlays/sys-clk-overlay.ovl
+rm switch/sys-clk-manager.nro
 
 ### Delete reboot_to_payload.nro & reboot_to_hekate.nro
 rm switch/reboot_to_payload.nro
