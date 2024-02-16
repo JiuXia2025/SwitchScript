@@ -429,6 +429,16 @@ else
     rm QuickNTP.zip
 fi
 
+### Fetch ReverseNX-RT
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/ReverseNX-RT.zip -o ReverseNX-RT.zip
+if [ $? -ne 0 ]; then
+    echo "ReverseNX-RT download\033[31m failed\033[0m."
+else
+    echo "ReverseNX-RT download\033[32m success\033[0m."
+    unzip -oq ReverseNX-RT.zip
+    rm ReverseNX-RT.zip
+fi
+
 ### Fetch lastest theme-patches from https://github.com/exelix11/theme-patches
 git clone https://github.com/exelix11/theme-patches
 if [ $? -ne 0 ]; then
