@@ -628,18 +628,14 @@ else
     mv Zing.ovl ./switch/.overlays
 fi
 
-### Fetch lastest QuickNTP from https://github.com/nedex/QuickNTP/releases/latest
-curl -sL https://api.github.com/repos/nedex/QuickNTP/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo QuickNTP {} >> ../description.txt
-curl -sL https://api.github.com/repos/nedex/QuickNTP/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o QuickNTP.ovl
+### Fetch QuickNTP
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
 if [ $? -ne 0 ]; then
     echo "QuickNTP download\033[31m failed\033[0m."
 else
     echo "QuickNTP download\033[32m success\033[0m."
-    mv QuickNTP.ovl ./switch/.overlays
+    unzip -oq QuickNTP.zip
+    rm QuickNTP.zip
 fi
 
 ### Fetch lastest sys-patch from https://github.com/ITotalJustice/sys-patch/releases/latest
