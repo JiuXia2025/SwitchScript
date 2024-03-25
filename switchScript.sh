@@ -609,21 +609,6 @@ else
     mv Zing.ovl ./switch/.overlays
 fi
 
-### Fetch lastest sys-patch from https://github.com/ITotalJustice/sys-patch/releases/latest
-curl -sL https://api.github.com/repos/ITotalJustice/sys-patch/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo sys-patch {} >> ../description.txt
-curl -sL https://api.github.com/repos/ITotalJustice/sys-patch/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o sys-patch.zip
-if [ $? -ne 0 ]; then
-    echo "sys-patch download\033[31m failed\033[0m."
-else
-    echo "sys-patch download\033[32m success\033[0m."
-    unzip -oq sys-patch.zip
-    rm sys-patch.zip
-fi
-
 ### Fetch lastest Switch-OC-Suite from https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest
 curl -sL https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases/latest \
   | jq '.tag_name' \
