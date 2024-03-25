@@ -31,7 +31,7 @@ cd SwitchSD
 curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
   | jq '.assets' | jq '.[0].browser_download_url' \
   | xargs -I {} curl -sL {} -o atmosphere.zip
 if [ $? -ne 0 ]; then
