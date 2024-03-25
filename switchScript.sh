@@ -27,8 +27,8 @@ mkdir -p ./SwitchSD/bootloader/res
 mkdir -p ./SwitchSD/config/tesla
 cd SwitchSD
 
-### Fetch latest atmosphere from https://github.com/borntohonk/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
+### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/borntohonk/Atmosphere/releases/latest \
