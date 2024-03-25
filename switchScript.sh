@@ -362,20 +362,6 @@ else
     rm Breeze.zip
 fi
 
-### Fetch lastest Sigpatch-Updater from https://github.com/ITotalJustice/sigpatch-updater/releases/latest
-curl -sL https://api.github.com/repos/ITotalJustice/sigpatch-updater/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo sigpatch-updater {} >> ../description.txt
-curl -sL https://api.github.com/repos/ITotalJustice/sigpatch-updater/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o sigpatch-updater.nro
-if [ $? -ne 0 ]; then
-    echo "Sigpatch-Updater download\033[31m failed\033[0m."
-else
-    echo "Sigpatch-Updater download\033[32m success\033[0m."
-    mv sigpatch-updater.nro ./switch
-fi
-
 ### Fetch lastest AtmoPackUpdater from https://github.com/PoloNX/AtmoPackUpdater/releases
 curl -sL https://api.github.com/repos/PoloNX/AtmoPackUpdater/releases/latest \
   | jq '.tag_name' \
