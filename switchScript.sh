@@ -187,7 +187,8 @@ if [ $? -ne 0 ]; then
     echo "Goldleaf download\033[31m failed\033[0m."
 else
     echo "Goldleaf download\033[32m success\033[0m."
-    mv Goldleaf.nro ./switch
+    mkdir -p ./SwitchSD/switch/Goldleaf
+    mv Goldleaf.nro ./switch/Goldleaf
 fi
 
 ### Fetch lastest Switch_90DNS_tester from https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest
@@ -288,36 +289,6 @@ if [ $? -ne 0 ]; then
 else
     echo "NXThemesInstaller download\033[32m success\033[0m."
     mv NXThemesInstaller.nro ./switch
-fi
-
-### Fetch lastest SimpleModDownloader from https://github.com/PoloNX/SimpleModDownloader/releases/latest
-curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo SimpleModDownloader {} >> ../description.txt
-curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o SimpleModDownloader.nro
-if [ $? -ne 0 ]; then
-    echo "SimpleModDownloader download\033[31m failed\033[0m."
-else
-    echo "SimpleModDownloader download\033[32m success\033[0m."
-    mkdir -p ./switch/SimpleModDownloader
-    mv SimpleModDownloader.nro ./switch/SimpleModDownloader
-fi
-
-### Fetch lastest Switchfin from https://github.com/dragonflylee/switchfin/releases/latest
-curl -sL https://api.github.com/repos/dragonflylee/switchfin/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo Switchfin {} >> ../description.txt
-curl -sL https://api.github.com/repos/dragonflylee/switchfin/releases/latest \
-  | jq '.assets' | jq '.[5].browser_download_url' \
-  | xargs -I {} curl -sL {} -o Switchfin.nro
-if [ $? -ne 0 ]; then
-    echo "Switchfin download\033[31m failed\033[0m."
-else
-    echo "Switchfin download\033[32m success\033[0m."
-    mkdir -p ./switch/Switchfin
-    mv Switchfin.nro ./switch/Switchfin
 fi
 
 ### Fetch lastest JKSV from https://github.com/J-D-K/JKSV/releases/latest
@@ -669,6 +640,27 @@ else
     unzip -oq Ultra_Tuner.zip
     rm Ultra_Tuner.zip
 fi
+
+### Fetch Broomstick-Mod
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/Broomstick-Mod.zip -o Broomstick-Mod.zip
+if [ $? -ne 0 ]; then
+    echo "Broomstick-Mod download\033[31m failed\033[0m."
+else
+    echo "Broomstick-Mod download\033[32m success\033[0m."
+    unzip -oq Broomstick-Mod.zip
+    rm Broomstick-Mod.zip
+fi
+
+### Fetch Cool-Curves
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/Cool-Curves.zip -o Cool-Curves.zip
+if [ $? -ne 0 ]; then
+    echo "Cool-Curves download\033[31m failed\033[0m."
+else
+    echo "Cool-Curves download\033[32m success\033[0m."
+    unzip -oq Cool-Curves.zip
+    rm Cool-Curves.zip
+fi
+
 
 ### Fetch lastest Switch-OC-Suite from https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest
 curl -sL https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases/latest \
