@@ -412,6 +412,7 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
+kip1=atmosphere/kips/*
 id=cfw-emu
 
 [CFW (sysMMC)]
@@ -420,6 +421,7 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
+kip1=atmosphere/kips/*
 id=cfw-sys
 
 [Stock SysNAND]
