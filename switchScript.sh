@@ -593,6 +593,7 @@ else
 fi
 
 ### Write config.ini in Ultra-Paw-Overlay
+mkdir -p config/ultrapaw
 cat > ./config/ultrapaw/config.ini << ENDOFFILE
 [ultrapaw]
 default_lang = zh-cn
