@@ -660,6 +660,16 @@ else
     rm OC-Toolkit.zip
 fi
 
+### Fetch Ultra_Tuner
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/Ultra_Tuner.zip -o Ultra_Tuner.zip
+if [ $? -ne 0 ]; then
+    echo "Ultra_Tuner download\033[31m failed\033[0m."
+else
+    echo "Ultra_Tuner download\033[32m success\033[0m."
+    unzip -oq Ultra_Tuner.zip
+    rm Ultra_Tuner.zip
+fi
+
 ### Fetch lastest Switch-OC-Suite from https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest
 curl -sL https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases/latest \
   | jq '.tag_name' \
