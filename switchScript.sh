@@ -19,6 +19,7 @@ mkdir -p ./SwitchSD/atmosphere/hosts
 mkdir -p ./SwitchSD/switch/DBI
 mkdir -p ./SwitchSD/switch/Checkpoint
 mkdir -p ./SwitchSD/switch
+mkdir -p ./SwitchSD/switch/.packages
 mkdir -p ./SwitchSD/warmboot_mariko
 mkdir -p ./SwitchSD/themes
 mkdir -p ./SwitchSD/bootloader
@@ -647,6 +648,16 @@ if [ $? -ne 0 ]; then
 else
     echo "Zing download\033[32m success\033[0m."
     mv Zing.ovl ./switch/.overlays
+fi
+
+### Fetch OC-Toolkit
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/OC-Toolkit.zip -o OC-Toolkit.zip
+if [ $? -ne 0 ]; then
+    echo "OC-Toolkit download\033[31m failed\033[0m."
+else
+    echo "OC-Toolkit download\033[32m success\033[0m."
+    unzip -oq OC-Toolkit.zip
+    rm OC-Toolkit.zip
 fi
 
 ### Fetch lastest Switch-OC-Suite from https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest
