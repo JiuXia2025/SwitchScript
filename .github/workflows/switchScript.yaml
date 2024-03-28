@@ -25,12 +25,6 @@ jobs:
       with:
         ref: main
 
-    - name: Initialization environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: |
-        sudo -E apt install -y jq
-
     - name: "Build & Release"
       run: |
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
@@ -48,7 +42,7 @@ jobs:
     - name: Create release
       uses: ncipollo/release-action@v1
       with:
-        name: ${{ env.DATE }} ❤️ | 大气层个人整合包
+        name: ${{ env.DATE }} ❤️ | 大气层九夏整合包
         allowUpdates: true
         tag: ${{ env.tag_name }}
         commit: main
