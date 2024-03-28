@@ -30,6 +30,7 @@ fi
 mkdir -p ./SwitchSD/atmosphere/config
 mkdir -p ./SwitchSD/atmosphere/hosts
 mkdir -p ./SwitchSD/switch/DBI
+mkdir -p ./SwitchSD/switch/Goldleaf
 mkdir -p ./SwitchSD/switch/Checkpoint
 mkdir -p ./SwitchSD/switch
 mkdir -p ./SwitchSD/switch/.packages
@@ -200,7 +201,6 @@ if [ $? -ne 0 ]; then
     echo "Goldleaf download\033[31m failed\033[0m."
 else
     echo "Goldleaf download\033[32m success\033[0m."
-    mkdir -p ./SwitchSD/switch/Goldleaf
     mv Goldleaf.nro ./switch/Goldleaf
 fi
 
