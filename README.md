@@ -8,6 +8,8 @@
 ## 更新日志
 - 2024-03-28
 
+  添加 AIO-Toolbox 多合一实用工具
+
   替换 UltraPaw 为 Ultrahand 菜单
   
   增加 脚本环境初始化模块
