@@ -24,7 +24,13 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: main
-
+    
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo -E apt install -y jq
+    
     - name: "Build & Release"
       run: |
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
