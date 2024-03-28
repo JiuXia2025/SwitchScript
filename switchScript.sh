@@ -17,7 +17,8 @@ elif [[ "$OSTYPE" == "darwin" ]]; then
   brew install jq
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   # linux
-  sudo -E apt-get install jq
+  sudo apt-get install jq
+fi;
 
 ### Create a new folder for storing files
 if [ -d SwitchSD ]; then
