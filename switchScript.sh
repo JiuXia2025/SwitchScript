@@ -705,8 +705,6 @@ rm switch/.overlays/sys-clk.ovl
 ### Delete reboot_to_payload.nro & reboot_to_hekate.nro
 rm switch/reboot_to_payload.nro
 rm switch/reboot_to_hekate.nro
-rm switch/TinyMemBenchNX.nro
-rm switch/MemTesterNX.nro
 
 ### Write sort.cfg in /config/Tesla-Menu/sort.cfg
 cat > ./config/Tesla-Menu/sort.cfg << ENDOFFILE
