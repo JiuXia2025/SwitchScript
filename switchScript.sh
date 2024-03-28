@@ -412,7 +412,6 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
-kip1=atmosphere/kips/*
 id=cfw-emu
 
 [CFW (sysMMC)]
@@ -421,7 +420,6 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
-kip1=atmosphere/kips/*
 id=cfw-sys
 
 [Stock SysNAND]
@@ -552,11 +550,11 @@ else
     rm switch/.overlays/ovlmenu.ovl
 fi
 
-### Fetch lastest Ultra-Paw-Overlay from https://github.com/Ultra-NX/Ultra-Paw-Overlay/releases/latest
-curl -sL https://api.github.com/repos/Ultra-NX/Ultra-Paw-Overlay/releases/latest \
+### Fetch lastest Ultrahand-Overlay from https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
   | jq '.tag_name' \
   | xargs -I {} echo Ultra-Paw-Overlay {} >> ../description.txt
-curl -sL https://api.github.com/repos/Ultra-NX/Ultra-Paw-Overlay/releases/latest \
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
   | jq '.assets' | jq '.[1].browser_download_url' \
   | xargs -I {} curl -sL {} -o ovlmenu.ovl
 if [ $? -ne 0 ]; then
@@ -566,10 +564,10 @@ else
     mv ovlmenu.ovl ./switch/.overlays
 fi
 
-### Write config.ini in Ultra-Paw-Overlay
-mkdir -p config/ultrapaw
-cat > ./config/ultrapaw/config.ini << ENDOFFILE
-[ultrapaw]
+### Write config.ini in Ultrahand-Overlay
+mkdir -p config/ultrahand
+cat > ./config/ultrahand/config.ini << ENDOFFILE
+[ultrahand]
 default_lang = zh-cn
 default_menu = overlays
 last_menu = overlays
@@ -586,9 +584,9 @@ hide_pcb_temp = true
 hide_soc_temp = true
 ENDOFFILE
 if [ $? -ne 0 ]; then
-    echo "Write config.ini in Ultra-Paw-Overlay\033[31m failed\033[0m."
+    echo "Write config.ini in Ultrahand-Overlay\033[31m failed\033[0m."
 else
-    echo "Write config.ini in Ultra-Paw-Overlay\033[32m success\033[0m."
+    echo "Write config.ini in Ultrahand-Overlay\033[32m success\033[0m."
 fi
 
 ###
@@ -689,8 +687,8 @@ curl -sL https://raw.githubusercontent.com/zdm65477730/QuickNTP/master/lang/zh-H
 mkdir -p switch/.overlays/lang/sys-clk
 curl -sL https://raw.githubusercontent.com/zdm65477730/sys-clk/develop/overlay/lang/zh-Hans.json -o switch/.overlays/lang/sys-clk/zh-Hans.json
 curl -sL https://raw.githubusercontent.com/zdm65477730/sys-clk/develop/overlay/lang/zh-Hant.json -o switch/.overlays/lang/sys-clk/zh-Hant.json
-mkdir -p config/ultrapaw/lang
-curl -sL https://raw.githubusercontent.com/ppkantorski/Ultrahand-Overlay/main/lang/zh-cn.json -o config/ultrapaw/lang/zh-cn.json
+mkdir -p config/ultrahand/lang
+curl -sL https://raw.githubusercontent.com/ppkantorski/Ultrahand-Overlay/main/lang/zh-cn.json -o config/ultrahand/lang/zh-cn.json
 
 ### Delete sys-clk.ovl
 rm switch/.overlays/sys-clk.ovl
