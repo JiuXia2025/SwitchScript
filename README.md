@@ -8,39 +8,62 @@
 ## 更新日志
 - 2024-03-28
   替换 UltraPaw 为 Ultrahand 菜单
+  
   增加 脚本环境初始化模块
 - 2024-03-27
   替换 Tesla-Menu 为 UltraPaw 菜单
+  
   添加 OC-Toolkit 极限超频插件
+  
   添加 Ultra Tuner 极限超频插件
+  
   添加 Cool Curves 风扇调整插件
+  
   添加 Broomstick Mod 插件管理器
+  
   更新 Tesla ovl插件包
+  
   更换 Atmosphere 仓库为[Atmosphere-NX/Atmosphere](https://github.com/Atmosphere-NX/Atmosphere)
 - 2024-02-16
   删除 色彩调节 插件
+  
   删除 内存测试 插件
+  
   删除 AIO Updater nro插件
+  
   汉化 QuickNTP 插件
+  
   添加 Goldleaf 插件
+  
   调整 仓库文件结构 ，部分资源本地化
 - 2024-02-05 
   添加 Switchfin nro插件
+  
   添加 SimpleModDownloader nro插件
+  
   更换 Atmosphere 仓库为 [borntohonk/Atmosphere](https://github.com/borntohonk/Atmosphere)
 - 2024-01-27
   添加 HB-Appstore-v2.3.2 nro插件
+  
   添加 Tinfoil-17v3 nro插件
+  
   添加 Wiliwili-v1.3.0 nro插件
+  
   添加 warmboot_mariko 忽略熔断补丁
+  
   更新 SigPatchers 最新版本，提高兼容性
+  
   更新 品技Z大最新版本特斯拉插件整合包
+  
   修改 菜单入口，特斯拉菜单按键：L+↓，hbmenu插件菜单按键：直接点击相册
+  
 - 2024-01-14 添加 picofly-toolbox 树莓派芯片工具箱插件
 - 2024-01-13 添加 DBI 中文汉化配置
 - 2024-01-12 
   添加 Hekate 安卓系统启动引导，位于hetake首页-更多设置中
+  
   添加 Hekate 引导图标与启动图资源，添加hbmenu.nsp
+  
   添加 hwfly-toolbox 国产芯片工具箱插件
 - 2024-01-11 添加 Hekate + Nyx繁简汉化版 仓库链接
 - 以下为旧更新日志
