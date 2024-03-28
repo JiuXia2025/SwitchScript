@@ -425,6 +425,7 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
+kip1=atmosphere/kips/*
 id=cfw-emu
 
 [CFW (sysMMC)]
@@ -433,6 +434,7 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
+kip1=atmosphere/kips/*
 id=cfw-sys
 
 [Stock SysNAND]
@@ -654,16 +656,6 @@ else
     rm sys-patch.zip
 fi
 
-### Fetch OC-Toolkit
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/OC-Toolkit.zip -o OC-Toolkit.zip
-if [ $? -ne 0 ]; then
-    echo "OC-Toolkit download\033[31m failed\033[0m."
-else
-    echo "OC-Toolkit download\033[32m success\033[0m."
-    unzip -oq OC-Toolkit.zip
-    rm OC-Toolkit.zip
-fi
-
 ### Fetch Ultra_Tuner
 curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/Ultra_Tuner.zip -o Ultra_Tuner.zip
 if [ $? -ne 0 ]; then
@@ -674,40 +666,24 @@ else
     rm Ultra_Tuner.zip
 fi
 
-### Fetch Broomstick-Mod
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/Broomstick-Mod.zip -o Broomstick-Mod.zip
+### Fetch AIO Toolbox
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/AIO-Toolbox.zip -o AIO-Toolbox.zip
 if [ $? -ne 0 ]; then
-    echo "Broomstick-Mod download\033[31m failed\033[0m."
+    echo "AIO-Toolbox download\033[31m failed\033[0m."
 else
-    echo "Broomstick-Mod download\033[32m success\033[0m."
-    unzip -oq Broomstick-Mod.zip
-    rm Broomstick-Mod.zip
+    echo "AIO-Toolbox download\033[32m success\033[0m."
+    unzip -oq AIO-Toolbox.zip
+    rm AIO-Toolbox.zip
 fi
 
-### Fetch Cool-Curves
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Ultrahand/Cool-Curves.zip -o Cool-Curves.zip
-if [ $? -ne 0 ]; then
-    echo "Cool-Curves download\033[31m failed\033[0m."
-else
-    echo "Cool-Curves download\033[32m success\033[0m."
-    unzip -oq Cool-Curves.zip
-    rm Cool-Curves.zip
-fi
-
-
-### Fetch lastest Switch-OC-Suite from https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest
-curl -sL https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo Switch-OC-Suite {} >> ../description.txt
-curl -sL https://api.github.com/repos/hanai3Bi/Switch-OC-Suite/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o AIO.zip
+### Fetch Switch-OC-Suite(hnayzdf ver.) from https://www.tekqart.com/thread-370908-1-1.html
+curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Switch-OC-Suite.zip -o Switch-OC-Suite.zip
 if [ $? -ne 0 ]; then
     echo "Switch-OC-Suite download\033[31m failed\033[0m."
 else
     echo "Switch-OC-Suite download\033[32m success\033[0m."
-    unzip -oq AIO.zip
-    rm AIO.zip
+    unzip -oq Switch-OC-Suite.zip
+    rm Switch-OC-Suite.zip
 fi
 
 ### Fetch Chinese lang
