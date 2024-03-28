@@ -566,14 +566,14 @@ fi
 ### Fetch lastest Ultrahand-Overlay from https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest
 curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
   | jq '.tag_name' \
-  | xargs -I {} echo Ultra-Paw-Overlay {} >> ../description.txt
+  | xargs -I {} echo Ultrahand-Overlay {} >> ../description.txt
 curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
   | jq '.assets' | jq '.[1].browser_download_url' \
   | xargs -I {} curl -sL {} -o ovlmenu.ovl
 if [ $? -ne 0 ]; then
-    echo "Ultra-Paw-Overlay download\033[31m failed\033[0m."
+    echo "Ultrahand-Overlay download\033[31m failed\033[0m."
 else
-    echo "Ultra-Paw-Overlay download\033[32m success\033[0m."
+    echo "Ultrahand-Overlay download\033[32m success\033[0m."
     mv ovlmenu.ovl ./switch/.overlays
 fi
 
@@ -632,6 +632,26 @@ if [ $? -ne 0 ]; then
 else
     echo "Zing download\033[32m success\033[0m."
     mv Zing.ovl ./switch/.overlays
+fi
+
+### Fetch sys-tune
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/sys-tune.zip -o sys-tune.zip
+if [ $? -ne 0 ]; then
+    echo "sys-tune download\033[31m failed\033[0m."
+else
+    echo "sys-tune download\033[32m success\033[0m."
+    unzip -oq sys-tune.zip
+    rm sys-tune.zip
+fi
+
+### Fetch sys-patch
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
+if [ $? -ne 0 ]; then
+    echo "sys-patch download\033[31m failed\033[0m."
+else
+    echo "sys-patch download\033[32m success\033[0m."
+    unzip -oq sys-patch.zip
+    rm sys-patch.zip
 fi
 
 ### Fetch OC-Toolkit
