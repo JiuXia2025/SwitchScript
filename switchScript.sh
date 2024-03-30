@@ -47,7 +47,7 @@ curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases \
-  | jq '.assets' | jq '.[0].browser_download_url' \
+  | jq '.[0].assets' | jq '.[0].browser_download_url' \
   | xargs -I {} curl -sL {} -o atmosphere.zip
 if [ $? -ne 0 ]; then
     echo "atmosphere download\033[31m failed\033[0m."
