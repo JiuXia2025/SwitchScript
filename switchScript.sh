@@ -425,7 +425,6 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
-kip1=atmosphere/kips/*
 id=cfw-emu
 
 [CFW (sysMMC)]
@@ -434,7 +433,6 @@ fss0=atmosphere/package3
 kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
-kip1=atmosphere/kips/*
 id=cfw-sys
 
 [Stock SysNAND]
@@ -677,14 +675,14 @@ else
 fi
 
 ### Fetch Switch-OC-Suite(hnayzdf ver.) from https://www.tekqart.com/thread-370908-1-1.html
-curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Switch-OC-Suite.zip -o Switch-OC-Suite.zip
-if [ $? -ne 0 ]; then
-    echo "Switch-OC-Suite download\033[31m failed\033[0m."
-else
-    echo "Switch-OC-Suite download\033[32m success\033[0m."
-    unzip -oq Switch-OC-Suite.zip
-    rm Switch-OC-Suite.zip
-fi
+#curl -sL https://raw.github.com/JiuXia2025/SwitchScript/main/plugins/Switch-OC-Suite.zip -o Switch-OC-Suite.zip
+#if [ $? -ne 0 ]; then
+#    echo "Switch-OC-Suite download\033[31m failed\033[0m."
+#else
+#    echo "Switch-OC-Suite download\033[32m success\033[0m."
+#    unzip -oq Switch-OC-Suite.zip
+#    rm Switch-OC-Suite.zip
+#fi
 
 ### Fetch Chinese lang
 mkdir -p switch/.overlays/lang/fastCFWswitch
