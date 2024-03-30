@@ -42,11 +42,11 @@ mkdir -p ./SwitchSD/bootloader/res
 mkdir -p ./SwitchSD/config/tesla
 cd SwitchSD
 
-### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases \
   | jq '.assets' | jq '.[0].browser_download_url' \
   | xargs -I {} curl -sL {} -o atmosphere.zip
 if [ $? -ne 0 ]; then
