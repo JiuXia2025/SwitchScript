@@ -8,17 +8,17 @@ set -e
 # -------------------------------------------
 
 ### Install jq if not already installed
-if [[ "$OSTYPE" == "msys" ]]; then
-  # Windows
+if [ "$OSTYPE" = "msys" ]; then
+  Windows
   @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
   chocolatey install jq
-elif [[ "$OSTYPE" == "darwin" ]]; then
-  # MacOS
+elif [ "$OSTYPE" = "darwin" ]; then
+  MacOS
   brew install jq
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  # linux
+elif [ "$OSTYPE" = "linux-gnu" ]; then
+  Linux
   sudo apt-get install jq
-fi;
+fi
 
 ### Create a new folder for storing files
 if [ -d SwitchSD ]; then
@@ -44,7 +44,7 @@ cd SwitchSD
 
 ### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases
 curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases \
-  | jq '.name' \
+  | jq '.[0] | .name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases \
   | jq '.[0].assets' | jq '.[0].browser_download_url' \
@@ -415,32 +415,40 @@ autohosoff=0
 autonogc=1
 updater2p=1
 
-[Fusee]
-icon=bootloader/res/icon_ams.bmp
-payload=bootloader/payloads/fusee.bin
-
-[CFW (emuMMC)]
+[大气层虚拟系统]
 emummcforce=1
 fss0=atmosphere/package3
 kip1patch=nosigchk
-atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
-id=cfw-emu
+id=Atm-Emu
+{九夏自动构建}
 
-[CFW (sysMMC)]
+[大气层真实系统]
 emummc_force_disable=1
 fss0=atmosphere/package3
 kip1patch=nosigchk
-atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
-id=cfw-sys
+id=Atm-Sys
+{九夏自动构建}
 
-[Stock SysNAND]
+[正版系统]
 emummc_force_disable=1
 fss0=atmosphere/package3
-icon=bootloader/res/icon_stock.bmp
 stock=1
-id=ofw-sys
+icon=bootloader/res/icon_stock.bmp
+id=OFW-SYS
+{九夏自动构建}
+
+[大气层自动识别]
+payload=bootloader/payloads/fusee.bin
+icon=bootloader/res/icon_ams.bmp
+id=Atm-Auto
+{九夏自动构建}
+[RCM提取密钥]
+payload=bootloader/payloads/Lockpick_RCM.bin
+icon=bootloader/res/icon_lockpick.bmp
+id=RCM-Keys
+{九夏自动构建}
 ENDOFFILE
 if [ $? -ne 0 ]; then
     echo "Writing hekate_ipl.ini in ./bootloader/ directory\033[31m failed\033[0m."
