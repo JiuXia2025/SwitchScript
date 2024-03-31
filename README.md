@@ -6,6 +6,8 @@
 - 整合包由JiuXia2025二改定制@huangqian8脚本后打包而成，加入了一些原有脚本未包含的内容并且会持续更新
 - 整合包自动构建，请下载最新release使用。所有大气层相关组件与插件自动同步上游最新版本，构建过程全公开不夹带私货，安全放心开箱即用
 ## 更新日志
+- 2024-03-31 添加SxGear的boot.dat，修复软破机无法启动的问题
+- 2024-03-30 将Atmosphere更换为AtmosphereNX的最新构建，恢复Sys-clk-OC原仓库的下载源
 - 2024-03-28
 
   添加 AIO-Toolbox 多合一实用工具
@@ -71,7 +73,7 @@
   
   添加 hwfly-toolbox 国产芯片工具箱插件
 - 2024-01-11 添加 Hekate + Nyx繁简汉化版 仓库链接
-- 以下为旧更新日志
+- 以下为旧更新日志 （From @huangqian8）
 - 2024-01-09 更新 Tesla3 仓库链接
 - 2023-12-15 更新 Lockpick_RCM 仓库链接
 - 2023-12-04 删除 Safe_Reboot_Shutdown.nro 插件，添加3个 Ovl 插件
