@@ -8,8 +8,6 @@ on:
     paths:
       - 'README.md'
       - 'switchScript.sh'
-  schedule:
-    - cron: 0 8 * * *
 
 env:
   SCRIPT_SH: switchScript.sh
