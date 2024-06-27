@@ -3,7 +3,7 @@ set -e
 
 ### Credit to the Authors at https://rentry.org/CFWGuides
 ### Script created by Fraxalotl
-### Mod by huangqian8 & JiuXia2025
+### Mod by JiuXia2025 & huangqian8
 
 # -------------------------------------------
 
